@@ -1,4 +1,6 @@
-package Model;
+package Business;
+
+import Model.*;
 
 public class ExpressionFactory {
 

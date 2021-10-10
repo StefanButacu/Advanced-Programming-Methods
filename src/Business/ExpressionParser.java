@@ -1,10 +1,19 @@
-package Model;
+package Business;
+
+import Model.ComplexExpression;
+import Model.ComplexNumber;
+import Model.Operation;
 
 public class ExpressionParser {
     private static final ExpressionFactory expFactory = ExpressionFactory.getInstance();
 
 
-
+    /**
+     *
+     * @param args - strings
+     * @return - false if one operator is different
+     *         - true otherwise
+     */
     public boolean checkOperator(String[] args){
         String op = args[1];
         // if is a valid operator
@@ -22,7 +31,7 @@ public class ExpressionParser {
      *
      * @param s - string
      * @return - double = the real part of the complex number
-     * @throws Exception - if the real part contains invalid character
+     * @throws Exception - if the String contains invalid character
      */
     public double convertStringToDouble(String s) throws Exception{
         int i = 0;
@@ -89,6 +98,12 @@ public class ExpressionParser {
         return new ComplexNumber(realPart, imgPart);
     }
 
+    /**
+     *
+     * @param args - string array
+     * @return ComplexNumber array - numbers build from string args
+     * @throws Exception - if can't convert from string to complex number
+     */
     public ComplexNumber[] getComplexNumbers(String[] args) throws Exception {
         ComplexNumber[] complexArgs =  new ComplexNumber[args.length/2+1];
         int nrOfComplexArgs = 0;
